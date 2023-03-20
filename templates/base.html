@@ -1,0 +1,80 @@
+{% extends 'index.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load custom_filters %}
+
+
+{%block 'content'%}
+
+  
+<div id="content"> 
+    <!-- Contact Us -->
+    <section class="lets-talk pad-t-b-130">
+      <div class="container"> 
+        <!-- Cantact Us -->
+        <div class="row">
+          <!-- Contact Form -->
+          <div class="col-sm-6">
+            <!-- Main Heading -->
+            <div class="heading-block left-align margin-bottom-60">
+              <h3 class="text-transform-none letter-space-0">Remove Background</h3>
+            </div>  
+              <!-- Content -->
+              <div id="content"> 
+                
+                <div class="contact">               
+                  <!-- Success Msg -->
+                  <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>              
+                  <!-- FORM -->
+                  <form role="form" enctype="multipart/form-data" id="contact_form" class="contact-form" method="post">
+                    {% csrf_token %}
+                    {% for hidden_field in form.hidden_fields %}
+                      {{ hidden_field.errors }}
+                      {{ hidden_field }}
+                    {% endfor %}
+                    <ul class="row nolist-style">
+
+                      <input href="{% url 'index' %}" type="file" class="form-control" name="image" id="image" placeholder="upload image">
+
+                      <li class="col-sm-12 text">
+                        <button style="margin: 15px;" type="submit"  class="btn btn-inverse" value="submit" id="btn_submit" onClick="proceed();">SUBMIT</button>
+                      </li>
+                      
+                    </ul>
+                  </form>
+                  <li style="width: 100%; " class="col-sm-12 text">
+                        
+                        <img style="width: 100%;" src="data:image/jpeg;base64,{{ image }}" alt="My Image">
+                  </li>
+                </div>
+                
+              </div>
+              <!-- End Content --> 
+          </div>
+          
+          <div class="col-md-6 contact-social"> 
+            
+            <!-- Main Heading -->
+            <div class="heading-block margin-bottom-60">
+              <h3 class="text-transform-none letter-space-0">Result Image</h3>
+            </div>
+            
+            
+            <!-- Main Heading -->
+            <div class="heading-block margin-bottom-40 margin-top-60">
+              <h3 class="text-transform-none letter-space-0">output image</h3>
+            </div>
+            <div class="social-links">
+              
+                  <li style="width: 100%; " class="col-sm-12 text">
+                        
+                        <img style="width: 100%;" src="data:image/jpeg;base64,{{ image_out }}" alt="Output Image">
+                  </li>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+ </div>
+{%endblock%}
