@@ -3,7 +3,7 @@ import os
 import base64
 from PIL import Image
 from io import BytesIO
-import numpy as np
+
 from rembg import remove
 from django.conf import settings
 from django.shortcuts import render
