@@ -1,5 +1,6 @@
 
 import os
+os.environ['OPENBLAS_NUM_THREADS']='1'
 import base64
 from PIL import Image
 from io import BytesIO
