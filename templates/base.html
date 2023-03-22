@@ -34,7 +34,7 @@
                     {% endfor %}
                     <ul class="row nolist-style">
 
-                      <input href="{% url 'index' %}" type="file" class="form-control" name="image" id="image" placeholder="upload image">
+                      <input href="{% url 'index' %}" type="file" class="form-control" accept="image/*" onchange="previewImage(event)" name="image" id="image" placeholder="upload image">
 
                       <li class="col-sm-12 text">
                         <button style="margin: 15px;" type="submit"  class="btn btn-inverse" value="submit" id="btn_submit" onClick="proceed();">SUBMIT</button>
@@ -44,7 +44,7 @@
                   </form>
                   <li style="width: 100%; " class="col-sm-12 text">
                         
-                        <img style="width: 100%;" src="data:image/jpeg;base64,{{ image }}" alt="My Image">
+                        <img id="imagePreview" style="width: 100%;" src="data:image/jpeg;base64,{{ image }}" alt="My Image">
                   </li>
                 </div>
                 
@@ -64,6 +64,7 @@
             <div class="heading-block margin-bottom-40 margin-top-60">
               <h3 class="text-transform-none letter-space-0">output image</h3>
             </div>
+            
             <div class="social-links">
               
                   <li style="width: 100%; " class="col-sm-12 text">

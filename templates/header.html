@@ -4,17 +4,33 @@
   <header class="header">
     <div class="sticky">
       <div class="container">
+        <style>
+          .rotate-wheel {
+            animation: rotate 6s linear infinite;
+          }
+
+          @keyframes rotate {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+
+
+        </style>
         <div class="logo"> 
           {% if logo.logo %}
             <!-- Main Nav Logo --> 
-            <a class="main-logo" href=" "><img height="41px" src="{{logo.logo.url}}" alt=""></a> 
+            <a class="main-logo rotate-wheel" href=" "><img height="41px" src="{{logo.logo.url}}" alt=""></a> 
             <!-- Logo sticky --> 
-            <a class="logo-sticky" href=" "><img height="41px" src="{{logo.logo.url}}" alt=""></a></div>
+            <a class="logo-sticky rotate-wheel" href=" "><img height="41px" src="{{logo.logo.url}}" alt=""></a></div>
           {% else %}
             <!-- Main Nav Logo --> 
-            <a class="main-logo" href=" "><img src="{% static 'images/logo.png' %}" alt=""></a> 
+            <a class="main-logo rotate-wheel" href=" "><img src="{% static 'images/logo.png' %}" alt=""></a> 
             <!-- Logo sticky --> 
-            <a class="logo-sticky" href=" "><img src="{% static 'images/logo.png' %}" alt=""></a></div>
+            <a class="logo-sticky rotate-wheel" href=" "><img src="{% static 'images/logo.png' %}" alt=""></a></div>
           {% endif %}
           
         <!-- Nav -->
