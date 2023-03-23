@@ -42,10 +42,12 @@
                       
                     </ul>
                   </form>
-                  <li style="width: 100%; " class="col-sm-12 text">
-                        
-                        <img id="imagePreview" style="width: 100%;" src="data:image/jpeg;base64,{{ image }}" alt="My Image">
-                  </li>
+                  {% if image %}
+                    <li style="width: 100%; " class="col-sm-12 text">
+                      <img id="imagePreview" style="width: 100%;" src="data:image/jpeg;base64,{{ image }}" alt="My Image">
+                    </li>
+                  {% endif %}
+
                 </div>
                 
               </div>
@@ -53,7 +55,7 @@
           </div>
           
           <div class="col-md-6 contact-social"> 
-            
+            {% if image_out %}
             <!-- Main Heading -->
             <div class="heading-block margin-bottom-60">
               <h3 class="text-transform-none letter-space-0">Result Image</h3>
@@ -65,13 +67,19 @@
               <h3 class="text-transform-none letter-space-0">output image</h3>
             </div>
             
-            <div class="social-links">
+            <div class="">
               
-                  <li style="width: 100%; " class="col-sm-12 text">
-                        
-                        <img style="width: 100%;" src="data:image/jpeg;base64,{{ image_out }}" alt="Output Image">
-                  </li>
+              
+                <li style="width: 100%; " class="col-sm-12 text">
+                  <img style="width: 100%;" src="data:image/png;base64,{{ image_out }}" alt="Output Image">
+                  <a class="btn btn-inverse text" href="data:image/png;base64,{{ image_out }}" download="output_image.png">Download
+                    <!-- <button style="margin: 15px;" class="btn btn-inverse text">Download</button> -->
+                  </a>
+              </li>
+              
+            
             </div>
+            {% endif %}
           </div>
           
         </div>
