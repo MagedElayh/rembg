@@ -21,7 +21,7 @@ humanfriendly==10.0
 idna==3.4
 ImageHash==4.3.1
 imageio==2.26.0
-llvmlite==0.39.1
+#llvmlite==0.39.1
 mpmath==1.3.0
 multidict==6.0.4
 networkx==3.0
